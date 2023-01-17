@@ -26,7 +26,7 @@ local config = {
         },
 
         -- Set colorscheme to use
-        colorscheme = "catppuccin",
+        colorscheme = "tokyonight-night",
 
         -- Add highlight groups in any theme
         highlights = {
@@ -224,8 +224,29 @@ local config = {
                         -- You can also add new plugins here as well:
                         -- Add plugins, the packer syntax without the "use"
                         -- { "andweeb/presence.nvim" },
-                        { "catppuccin/nvim", as = "catppuccin" }
-                        -- {
+                        { "ray-x/guihua.lua" },
+                        { "ray-x/go.nvim",
+                                config = function()
+                                        require("go").setup()
+                                end,
+                        },
+                        { "folke/tokyonight.nvim" },
+                        { "catppuccin/nvim", as = "catppuccin" },
+                        { "olivercederborg/poimandres.nvim" },
+                        { "Everblush/everblush.nvim", as = "everblush" },
+                        { "Mofiqul/dracula.nvim", as = "dracula" },
+                        { "olimorris/onedarkpro.nvim" },
+                        { "nvim-lualine/lualine.nvim",
+                                config = function()
+                                        require("lualine").setup()
+                                end,
+                                options = { theme = "tokyonight" }
+                        },
+                        { "kristijanhusak/vim-carbon-now-sh" },
+                        { "mattn/emmet-vim" },
+                        { "christoomey/vim-tmux-navigator" },
+                        { "ekalinin/Dockerfile.vim" },
+                        { "wakatime/vim-wakatime" },
                         --   "ray-x/lsp_signature.nvim",
                         --   event = "BufRead",
                         --   config = function()
