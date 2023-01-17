@@ -26,7 +26,7 @@ local config = {
         },
 
         -- Set colorscheme to use
-        colorscheme = "tokyonight-night",
+        colorscheme = "dracula",
 
         -- Add highlight groups in any theme
         highlights = {
@@ -234,7 +234,17 @@ local config = {
                         { "catppuccin/nvim", as = "catppuccin" },
                         { "olivercederborg/poimandres.nvim" },
                         { "Everblush/everblush.nvim", as = "everblush" },
-                        { "Mofiqul/dracula.nvim", as = "dracula" },
+                        { "Mofiqul/dracula.nvim", 
+                          as = "dracula",
+                          config = function()
+                            require("dracula").setup({
+                              colors = {
+                                bg = "#191A21",
+                                comment = "#3F4761"
+                              }
+                            })
+                          end,
+                        },
                         { "olimorris/onedarkpro.nvim" },
                         { "nvim-lualine/lualine.nvim",
                                 config = function()
