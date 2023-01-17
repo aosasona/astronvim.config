@@ -26,7 +26,7 @@ local config = {
         },
 
         -- Set colorscheme to use
-        colorscheme = "default_theme",
+        colorscheme = "catppuccin",
 
         -- Add highlight groups in any theme
         highlights = {
@@ -149,7 +149,7 @@ local config = {
                                         -- "go",
                                 },
                                 ignore_filetypes = { -- disable format on save for specified filetypes
-                                        -- "python",
+                                        "sql",
                                 },
                         },
                         disabled = { -- disable formatting capabilities for the listed language servers
@@ -224,6 +224,7 @@ local config = {
                         -- You can also add new plugins here as well:
                         -- Add plugins, the packer syntax without the "use"
                         -- { "andweeb/presence.nvim" },
+                        { "catppuccin/nvim", as = "catppuccin" }
                         -- {
                         --   "ray-x/lsp_signature.nvim",
                         --   event = "BufRead",
