@@ -26,7 +26,7 @@ local config = {
         },
 
         -- Set colorscheme to use
-        colorscheme = "dracula",
+        colorscheme = "kanagawa",
 
         -- Add highlight groups in any theme
         highlights = {
@@ -149,7 +149,7 @@ local config = {
                                         -- "go",
                                 },
                                 ignore_filetypes = { -- disable format on save for specified filetypes
-                                        "sql",
+                                        -- "sql",
                                 },
                         },
                         disabled = { -- disable formatting capabilities for the listed language servers
@@ -224,33 +224,39 @@ local config = {
                         -- You can also add new plugins here as well:
                         -- Add plugins, the packer syntax without the "use"
                         -- { "andweeb/presence.nvim" },
-                        { "ray-x/guihua.lua" },
+                        { "tpope/vim-fugitive" },
+                        { "phaazon/hop.nvim",
+                                config = function()
+                                        require("hop").setup()
+                                end,
+                        },
                         { "ray-x/go.nvim",
                                 config = function()
                                         require("go").setup()
                                 end,
                         },
+                        { "rebelot/kanagawa.nvim" },
+                        { "EdenEast/nightfox.nvim" },
                         { "folke/tokyonight.nvim" },
+                        { "folke/lsp-colors.nvim" },
+                        { "nvim-treesitter/nvim-treesitter-context" },
+                        -- { "drewtempelmeyer/palenight.vim" },
                         { "catppuccin/nvim", as = "catppuccin" },
-                        { "olivercederborg/poimandres.nvim" },
                         { "Everblush/everblush.nvim", as = "everblush" },
-                        { "Mofiqul/dracula.nvim", 
-                          as = "dracula",
+                        { "Mofiqul/dracula.nvim", as = "dracula", },
+                        -- { "olimorris/onedarkpro.nvim" },
+                        { "rose-pine/neovim",
+                          as = "rose-pine",
                           config = function()
-                            require("dracula").setup({
-                              colors = {
-                                bg = "#191A21",
-                                comment = "#3F4761"
-                              }
-                            })
+                            require("rose-pine").setup()
                           end,
                         },
-                        { "olimorris/onedarkpro.nvim" },
                         { "nvim-lualine/lualine.nvim",
                                 config = function()
-                                        require("lualine").setup()
+                                        require("lualine").setup({
+                                          options = { theme = "kanagawa" }
+                                        })
                                 end,
-                                options = { theme = "tokyonight" }
                         },
                         { "kristijanhusak/vim-carbon-now-sh" },
                         { "mattn/emmet-vim" },
