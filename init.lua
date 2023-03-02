@@ -219,11 +219,6 @@ local config = {
                         -- { "andweeb/presence.nvim" },
                         { "prisma/vim-prisma" },
                         { "tpope/vim-fugitive" },
-                        { "phaazon/hop.nvim",
-                                config = function()
-                                        require("hop").setup()
-                                end,
-                        },
                         { "ray-x/go.nvim",
                                 config = function()
                                         require("go").setup()
@@ -246,11 +241,11 @@ local config = {
                         { "folke/tokyonight.nvim" },
                         { "folke/lsp-colors.nvim" },
                         { "nvim-treesitter/nvim-treesitter-context" },
-                        -- { "drewtempelmeyer/palenight.vim" },
+                        { "drewtempelmeyer/palenight.vim" },
                         { "catppuccin/nvim",                        as = "catppuccin" },
                         { "Everblush/everblush.nvim",               as = "everblush" },
                         { "Mofiqul/dracula.nvim",                   as = "dracula", },
-                        -- { "olimorris/onedarkpro.nvim" },
+                        { "olimorris/onedarkpro.nvim" },
                         { "rose-pine/neovim",
                                 as = "rose-pine",
                                 config = function()
