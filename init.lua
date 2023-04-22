@@ -40,10 +40,10 @@ local config = {
                         -- set to true or false etc.
                         relativenumber = true, -- sets vim.opt.relativenumber
                         number = true,         -- sets vim.opt.number
-                        spell = true,          -- sets vim.opt.spell
+                        spell = false,         -- sets vim.opt.spell
                         signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
-                        wrap = true,           -- sets vim.opt.wrap
-                        foldmethod = "syntax",
+                        -- foldmethod = "expr",
+                        -- foldexpr = "nvim_treesitter#foldexpr()",
                 },
                 g = {
                         mapleader = " ",                   -- sets vim.g.mapleader
@@ -55,6 +55,7 @@ local config = {
                         icons_enabled = true,              -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
                         ui_notifications_enabled = true,   -- disable notifications when toggling UI elements
                         heirline_bufferline = false,       -- enable new heirline based bufferline (requires :PackerSync after changing)
+                        gruvbox_material_background = "hard",
                 },
         },
         -- If you need more control, you can use the function()...end notation
@@ -227,7 +228,7 @@ local config = {
                         {
                                 "kylechui/nvim-surround",
                                 config = function()
-                                        require("nvim-surround").setup({})
+                                        require("nvim-surround").setup()
                                 end,
                         },
                         {
@@ -236,7 +237,7 @@ local config = {
                                         require("elixir").setup()
                                 end,
                         },
-                        { "github/copilot.vim" },
+                        { "sainnhe/gruvbox-material" },
                         { "wuelnerdotexe/vim-astro" },
                         { "rebelot/kanagawa.nvim" },
                         { "EdenEast/nightfox.nvim" },
@@ -258,9 +259,7 @@ local config = {
                         {
                                 "nvim-lualine/lualine.nvim",
                                 config = function()
-                                        require("lualine").setup({
-                                                options = { theme = "kanagawa" }
-                                        })
+                                        require("lualine").setup()
                                 end,
                         },
                         { "mattn/emmet-vim" },
@@ -282,7 +281,7 @@ local config = {
                         -- },
                 },
                 -- All other entries override the require("<key>").setup({...}) call for default plugins
-                ["null-ls"] = function(config)     -- overrides `require("null-ls").setup(config)`
+                ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
                         -- config variable is the default configuration table for the setup function call
                         -- local null_ls = require "null-ls"
 
@@ -293,6 +292,7 @@ local config = {
                                 -- Set a formatter
                                 -- null_ls.builtins.formatting.stylua,
                                 -- null_ls.builtins.formatting.prettier,
+                                -- null_ls.builtins.formatting.sqlfluff,
                         }
                         return config -- return final config table
                 end,
@@ -301,14 +301,14 @@ local config = {
                         -- ensure_installed = { "lua" },
                 },
                 -- use mason-lspconfig to configure LSP installations
-                ["mason-lspconfig"] = {     -- overrides `require("mason-lspconfig").setup(...)`
+                ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
                         -- ensure_installed = { "sumneko_lua" },
                 },
                 -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
-                ["mason-null-ls"] = {     -- overrides `require("mason-null-ls").setup(...)`
+                ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
                         -- ensure_installed = { "prettier", "stylua" },
                 },
-                ["mason-nvim-dap"] = {     -- overrides `require("mason-nvim-dap").setup(...)`
+                ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
                         -- ensure_installed = { "python" },
                 },
         },
